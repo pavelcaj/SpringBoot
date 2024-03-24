@@ -1,8 +1,10 @@
 package com.example.springboot.controller;
 
 import com.example.springboot.entity.Student;
+import com.example.springboot.service.DBStudentService;
 import com.example.springboot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,7 +50,8 @@ public class StudentController {
     private StudentService studentService;
 
     @Autowired
-    public StudentController(StudentService studentService) {
+    public StudentController(
+            @Qualifier("DBStudentService") StudentService studentService) {
         this.studentService = studentService;
     }
 
