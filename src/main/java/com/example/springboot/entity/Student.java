@@ -8,8 +8,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
 import java.time.LocalDate;
+
 @Entity
-@Table(name="student")
+@Table(name = "student")
 public class Student {
 
 
@@ -22,7 +23,8 @@ public class Student {
     @Column(unique = true)
     private String email;
     @Transient
-    private  int age;
+    private int age;
+
     public Student() {
     }
 
@@ -78,6 +80,7 @@ public class Student {
     public void setAge(int age) {
         this.age = age;
     }
+
     public int getId() {
         return Id;
     }

@@ -34,16 +34,18 @@ public class StudentController {
         return studentService.findEmail(email);
 
     }
+
     @PutMapping
     public Student updateStudent(
-         @RequestBody Student student
-    ){
+            @RequestBody Student student
+    ) {
         return studentService.update(student);
     }
+
     @DeleteMapping("/{email}")
     public void delete(
-           @PathVariable("email") String email
-    ){
+            @PathVariable("email") String email
+    ) {
         studentService.delete(email);
     }
 

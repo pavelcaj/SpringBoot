@@ -6,9 +6,10 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 
-public class DBStudentService implements StudentService{
+public class DBStudentService implements StudentService {
     private final StudentRepository repository;
 
     public DBStudentService(StudentRepository repository) {
@@ -27,12 +28,12 @@ public class DBStudentService implements StudentService{
 
     @Override
     public Student findEmail(String email) {
-        return repository.findByEmail(email) ;
+        return repository.findByEmail(email);
     }
 
     @Override
     public void delete(String email) {
-repository.deleteBy(email);
+        repository.deleteBy(email);
     }
 
     @Override

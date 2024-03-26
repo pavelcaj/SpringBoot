@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
+
 @Repository
 public class StudentInMemoryDao {
     private List<Student> STUDENTS = new ArrayList<>();
@@ -24,7 +25,7 @@ public class StudentInMemoryDao {
 
     public Student findEmail(String email) {
         return STUDENTS.stream()
-                .filter(s->email.equals(s.getEmail()))
+                .filter(s -> email.equals(s.getEmail()))
                 .findFirst()
                 .orElse(null);
     }
@@ -32,19 +33,19 @@ public class StudentInMemoryDao {
 
     public void delete(String email) {
         var student = findEmail(email);
-        if(student!= null) {
+        if (student != null) {
             STUDENTS.remove(student);
         }
     }
 
 
     public Student update(Student s) {
-        var studentIndex = IntStream.range(0,STUDENTS.size())
+        var studentIndex = IntStream.range(0, STUDENTS.size())
                 .filter(index -> STUDENTS.get(index).getEmail().equals(s.getEmail()))
                 .findFirst()
                 .orElse(-1);
-        if(studentIndex> -1){
-            STUDENTS.set(studentIndex,s);
+        if (studentIndex > -1) {
+            STUDENTS.set(studentIndex, s);
             return s;
         }
         return null;
